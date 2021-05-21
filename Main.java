@@ -1,47 +1,40 @@
 package com.company;
 
-import java.lang.Math;
-import java.util.Random;
 import java.util.Scanner;
+import static java.lang.Math.*;
+
 
 public class Main {
 
     public static void main(String[] args) {
-        int row, column;
+        double x;
+        double numb, domin, frac, a, b, c, d1, d2, e, e1, e2, y;
 
-        Scanner console = new Scanner(System.in);
-        System.out.print("Количество строк: ");
-        row = console.nextInt();
-        System.out.print("Количество столбцов: ");
-        column = console.nextInt();
+        Scanner num = new Scanner(System.in);
+        x = num.nextDouble();
 
-        Random random = new Random();
-        int[][] arr = new int[row][column];
+        numb = (exp(abs(x))/2);
+        domin =(exp(abs(x))/2) + 1;
+        frac = numb/domin;
+        a = acos(pow(frac,5));
+        b = (exp(pow(x,2)/5));
+        d1 = sin(x);
+        d2 = cos(x);
+        e1 = pow(2, d1);
+        e2 = pow(x, d2);
+        e = e1 + e2;
+        c = log(e);
+        y = a+b+c;
+        System.out.println(y);
 
-        for (int r = 0; r < row; r++) { //заполнение массива
-            for (int c = 0; c < column; c++) {
-                arr[r][c] = 50 - random.nextInt(100);
-            }
+        if ((x<= -5|x>= 5)&(y<=0|y>=6)){
+            System.out.println("true");
         }
-        for (int r = 0; r < row; r++) { // вывод массива
-            for (int c = 0; c < column; c++) {
-                System.out.print("" + arr[r][c] + "|");
-            }
-            System.out.println();
+        else {
+            System.out.println("false");
         }
 
-        rowSumma(row,column,arr);
+	// write your code here
     }
-
-    private static void rowSumma(int row, int column, int[][] arr) {
-        for (int r = 0; r < row; r++) { // сумма строки
-            int rowSum = 0;
-            for (int c = 0; c < column; c++) {
-                rowSum = rowSum + arr[r][c];
-            }
-            System.out.print("||" + rowSum);
-        }
-    }
-
-
 }
+
